@@ -9,11 +9,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: url('https://source.unsplash.com/1600x900/?library') no-repeat center center fixed; /* Background image for modern look */
+    background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* Container for form and content */
+/* Container to center and overlay */
 .container {
     position: relative;
     width: 100%;
@@ -21,147 +21,81 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Overlay to darken the background */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-/* Content styles */
-.content {
-    text-align: center;
-    color: #fff;
-    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
 }
 
 /* Form styles */
 form {
-    width: 300px; /* Consistent width */
-    margin: 0 auto;
+    width: 300px; /* Adjusted width for a better look */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Error message styling */
 .error-message {
-    color: #d9534f;
-    background-color: #f2dede;
-    border: 1px solid #d9534f;
+    color: #d9534f; /* Red color for error */
+    background-color: #f2dede; /* Light red background */
+    border: 1px solid #d9534f; /* Red border */
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 15px;
-    text-align: center;
 }
 
 /* Label style */
 label {
     display: block;
     margin-bottom: 5px;
-    color: #fff;
-    text-align: left;
-    font-weight: 400;
+    color: #333;
 }
 
 /* Input fields style */
 input[type="text"],
 input[type="password"] {
-    width: calc(100% - 20px);
+    width: calc(100% - 20px); /* Full width minus padding */
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
 }
 
 /* Submit button style */
-input[type="submit"],
-.btn {
+input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #333; /* Dark background */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-bottom: 10px;
-}
-
-input[type="submit"]:hover,
-.btn:hover {
-    background-color: #555; /* Slightly lighter */
-    color: #fff;
-}
-
-/* Button styles for secondary button */
-.btn-secondary {
-    background-color: #777; /* Gray background */
-}
-
-.btn-secondary:hover {
-    background-color: #999; /* Lighter gray on hover */
-}
-
-/* Align buttons vertically */
-.button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-
-/* Home button with image */
-.home-button-image {
-    width: 60px;
-    height: auto;
-    margin-top: 20px;
-    cursor: pointer;
-    border: none;
-    transition: transform 0.2s;
-}
-
-.home-button-image:hover {
-    transform: scale(1.1);
-}
-
-/* Link styling */
-p a {
-    color: #ccc; /* Light gray for links */
-    text-decoration: none;
-}
-
-p a:hover {
-    text-decoration: underline;
-}
-
-/* Home button (text) style */
-button {
-    padding: 10px 20px;
     background-color: #333;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-button:hover {
+input[type="submit"]:hover {
     background-color: #555;
 }
 
-button:active {
-    transform: scale(0.98);
+/* Home button with image */
+.home-button-image {
+    width: 60px; /* Adjust size */
+    height: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.home-button-image:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+/* Link styling */
+p a {
+    color: #333; /* Match text color */
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
