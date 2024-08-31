@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/book_description.css"> <!-- Ensure correct path -->
+    <title>Book Description</title>
+</head>
+<body>
+    <!-- User Profile Section -->
+    <div id="profile">
+        <% if (user) { %>
+            <p>Welcome, <%= user.username %></p>
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        <% } else { %>
+            <p>Welcome, Guest</p>
+        <% } %>
+    </div>
+
+    <!-- Book Details Section -->
+    <div class="book-details-container">
+        <div class="book-cover">
+            <img src="<%= book.book_cover %>" alt="Book Cover">
+        </div>
+        <div class="book-description">
+            <h1><%= book.title %></h1>
+            <p><strong>Author:</strong> <%= book.author %></p>
+            <p><strong>Description:</strong></p>
+            <p><%= book.description %></p>
+        </div>
+    </div>
+
+    <!-- Back to List Button -->
+    <a href="/books" class="back-button">Back to List</a>
+</body>
+</html>

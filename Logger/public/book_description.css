@@ -1,0 +1,152 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Profile Section */
+#profile {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#profile p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#profile form button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #5e72e4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#profile form button:hover {
+    background-color: #324cdd;
+}
+
+/* Book Details Section */
+.book-details-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.book-cover {
+    flex: 1; /* Allocate space for the cover image */
+    margin-right: 20px;
+}
+
+.book-cover img {
+    max-width: 100%; /* Ensure the image fits within its container */
+    height: auto;
+    border-radius: 8px;
+}
+
+.book-description {
+    flex: 2; /* Allocate more space for the description */
+}
+
+.book-description h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #5e72e4;
+}
+
+.book-description p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Back to List Button */
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #5e72e4;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #324cdd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #profile {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .book-details-container {
+        flex-direction: column;
+    }
+
+    .book-cover {
+        margin-bottom: 20px; /* Add some space between the cover and the description on smaller screens */
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+    table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        font-size: 14px;
+        text-align: right;
+    }
+
+    table tbody td::before {
+        content: attr(data-label);
+        flex: 1;
+        text-align: left;
+        font-weight: bold;
+        color: #333;
+    }
+}

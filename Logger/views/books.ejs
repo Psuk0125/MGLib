@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="books.css">
+    <title>Books</title>
+</head>
+<body>
+    <div id="profile">
+        <% if (user) { %>
+            <p>Welcome, <%= user.username %></p>
+            <form action="/logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+        <% } else { %>
+            <p>Welcome, Guest</p>
+        <% } %>
+    </div>
+    
+    <h1>List of Books</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="book-list">
+            <% books.forEach(function(book) { %>
+                <tr>
+                    <td><%= book.title %></td>
+                    <td><%= book.author %></td>
+                    <td><%= book.borrowed ? 'Borrowed' : 'Available' %></td>
+                    <td>
+                        <button type="button" 
+                                data-title="<%= book.title %>" 
+                                onclick="redirectToDetails(this)">
+                            Show Details
+                        </button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <script>
+        function redirectToDetails(button) {
+            const bookTitle = button.getAttribute('data-title');
+            window.location.href = `/books/description?title=${encodeURIComponent(bookTitle)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/register.css"> <!-- Link to your CSS file -->
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Heading style */
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form styles */
+        form {
+            width: 300px; /* Adjusted width for a better look */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .popup.show {
+            display: block;
+        }
+
+        .popup h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Button styles */
+        button {
+            padding: 8px 16px;
+            background-color: #4A8522;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #356018;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Input and label styles */
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Error and success message styling */
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .message.error {
+            color: red;
+            border: 1px solid red;
+            background-color: #fdd;
+        }
+
+        .message.success {
+            color: green;
+            border: 1px solid green;
+            background-color: #dfd;
+        }
+
+        /* Link styles */
+        p {
+            margin-top: 20px;
+        }
+
+        p a {
+            color: #4A8522;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register</h1>
+
+    <form id="registerForm">
+        <label for="email">Enter your email address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="username">Enter your username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Enter your password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" id="registerButton">Register</button>
+    </form>
+
+    <div id="verificationPopup" class="popup">
+        <h2>Verification</h2>
+        <label for="verificationCode">Enter verification code:</label>
+        <input type="text" id="verificationCode" name="verificationCode">
+        <button onclick="verifyCode()">Verify</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>    
+
+    <div id="errorMessage" class="message error" style="display: none;"></div>
+    <div id="successMessage" class="message success" style="display: none;"></div>
+
+    <p>Already have an account? <a href="/login">Login here</a></p>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+    
+            try {
+                const response = await fetch("/sendVerificationCode", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email, username, password })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById("verificationPopup").classList.add("show");
+                    document.getElementById("verificationCode").value = '';
+                    showSuccess(data.message || "Verification code sent. Please check your email.");
+                } else {
+                    showError(data.message || "Failed to send verification code. Please try again.");
+                }
+            } catch (error) {
+                showError("An error occurred: " + error.message);
+            }
+        });
+    
+        async function verifyCode() {
+            const email = document.getElementById("email").value;
+            const verificationCode = document.getElementById("verificationCode").value;
+            const response = await fetch("/verifyCode", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    verificationCode,
+                    username: document.getElementById("username").value,
+                    password: document.getElementById("password").value
+                })
+            });
+            const data = await response.json();
+            if (data.success) {
+                showSuccess(data.message || "Verification successful!");
+                closePopup(); // Hide popup after successful verification
+            } else {
+                showError(data.message || "Verification failed. Please try again.");
+            }
+        }
+    
+        function showError(message) {
+            const errorMessage = document.getElementById("errorMessage");
+            errorMessage.innerText = message;
+            errorMessage.style.display = "block";
+        }
+    
+        function showSuccess(message) {
+            const successMessage = document.getElementById("successMessage");
+            successMessage.innerText = message;
+            successMessage.style.display = "block";
+        }
+    
+        function closePopup() {
+            document.getElementById("verificationPopup").classList.remove("show");
+        }
+    </script>
+</body>
+</html>

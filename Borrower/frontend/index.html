@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borrow Book</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-section">
+    <h2>Check Out Book</h2>
+    <form id="borrowForm">
+      <label for="borrowerName">Your Username:</label>
+      <input type="text" id="borrowerName" name="borrowerName" required><br><br>
+      <label for="bookTitle">Book Title:</label>
+      <input type="text" id="bookTitle" name="bookTitle" required><br><br>
+      <button type="submit">Check Out</button>
+    </form>
+  </div>
+
+  <h2>Borrowed Books</h2>
+  <table id="borrowedBooks">
+    <thead>
+      <tr>
+        <th>Borrower</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Cover</th> <!-- Column for Book Cover -->
+        <th>Description</th>
+        <th>Borrowed Date</th>
+        <th>Return Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="borrowedBooksBody"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
