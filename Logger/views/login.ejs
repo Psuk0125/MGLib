@@ -3,30 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css"> <!-- Make sure this path is correct -->
     <title>Login</title>
+    <!-- Include Google Fonts if needed -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <!-- Display error message if it exists -->
-        <% if (errorMessage) { %>
-            <div class="error-message"><%= errorMessage %></div>
-        <% } %>
-        
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Login">
-    </form>
+    <!-- Container for the login form -->
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Login</h1>
+            
+            <!-- Login form -->
+            <form action="/login" method="POST">
+                <!-- Display error message if it exists -->
+                <% if (errorMessage) { %>
+                    <div class="error-message"><%= errorMessage %></div>
+                <% } %>
+                
+                <!-- Input fields for username and password -->
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
 
-    <!-- Image Link to Home Page -->
-    <a href="/">
-        <img src="ArrowLeft.png" alt="Home" class="home-button-image">
-    </a>
-    
-    <!-- Link to the registration page -->
-    <p>Don't have an account? <a href="/register">Register here</a></p>
+                <!-- Submit button -->
+                <div class="button-group">
+                    <input type="submit" class="btn btn-primary" value="Login">
+                </div>
+            </form>
+
+            <!-- Link to the home page with an image -->
+            <a href="/">
+                <img src="ArrowLeft.png" alt="Home" class="home-button-image">
+            </a>
+
+            <!-- Link to the registration page -->
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+        </div>
+    </div>
 </body>
 </html>
