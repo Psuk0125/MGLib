@@ -58,12 +58,15 @@ input[type="password"] {
     font-size: 16px;
     color: #333;
     background-color: #f9f9f9;
+    text-align: center; /* Center text horizontally */
+    line-height: 1.5; /* Adjust line height to center text vertically */
 }
 
 /* Placeholder text style */
 input::placeholder {
     color: #999;
     font-size: 16px;
+    text-align: center; /* Center placeholder text horizontally */
 }
 
 /* Submit button style */
