@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* General body styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,109 +5,229 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    background: url('https://source.unsplash.com/1600x900/?library') no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
-}
-
-/* Container with a semi-transparent overlay */
-.container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Overlay to darken the background image */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-/* Content in the center of the page */
-.content {
-    text-align: center;
-    color: #fff;
-    z-index: 2;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Stylish heading */
-h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #fff;
-}
-
-/* Subtext or paragraph */
-p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-    color: #ddd;
-}
-
-/* Vertical button group */
-.button-group {
-    display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-/* Button styles */
-.btn {
-    text-decoration: none;
-    font-size: 1.1rem;
+/* Heading style */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Form styles */
+form {
+    width: 300px; /* Adjusted width for a better look */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Error message styling */
+.error-message {
+    color: #d9534f; /* Red color for error */
+    background-color: #f2dede; /* Light red background */
+    border: 1px solid #d9534f; /* Red border */
     padding: 10px;
     border-radius: 4px;
-    transition: background-color 0.3s, transform 0.2s;
-    margin: 0 auto;
-    display: block;
-    width: 100%;
-    max-width: 200px;
-    box-sizing: border-box;
+    margin-bottom: 15px;
     text-align: center;
+}
+
+/* Label style */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input fields style */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button style */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4A8522;
+    color: white;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Modern button style */
-.btn-primary {
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
+input[type="submit"]:hover {
+    background-color: #356018;
 }
 
-.btn-secondary {
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text */
+/* Home button with image */
+.home-button-image {
+    width: 60px; /* Increased size */
+    height: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
 }
 
-/* Button hover effect */
-.btn-primary:hover,
-.btn-secondary:hover {
-    background-color: #444;
-    color: #fff;
-    transform: scale(1.05);
+.home-button-image:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
 }
 
-/* Button active effect */
-.btn-primary:active,
-.btn-secondary:active {
+/* Link styling */
+p a {
+    color: #4A8522; /* Match the button color */
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Home button (text) style */
+button {
+    padding: 10px 20px;
+    background-color: #4A8522;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #356018;
+}
+
+button:active {
     transform: scale(0.98);
 }
+this is login.css can u make the style similar/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Heading style */
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Form styles */
+form {
+    width: 300px; /* Adjusted width for a better look */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Error message styling */
+.error-message {
+    color: #d9534f; /* Red color for error */
+    background-color: #f2dede; /* Light red background */
+    border: 1px solid #d9534f; /* Red border */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Label style */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input fields style */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button style */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4A8522;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #356018;
+}
+
+/* Home button with image */
+.home-button-image {
+    width: 60px; /* Increased size */
+    height: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.home-button-image:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+/* Link styling */
+p a {
+    color: #4A8522; /* Match the button color */
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Home button (text) style */
+button {
+    padding: 10px 20px;
+    background-color: #4A8522;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #356018;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+this is login.css can u make the style similar
