@@ -7,27 +7,27 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <!-- Display error message if it exists -->
-        <% if (errorMessage) { %>
-            <div class="error-message"><%= errorMessage %></div>
-        <% } %>
-        
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Password" required><br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <!-- Display error message if it exists -->
+            <% if (errorMessage) { %>
+                <div class="error-message"><%= errorMessage %></div>
+            <% } %>
+            
+            <input type="text" id="username" name="username" placeholder="Username" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
 
-    <!-- Button Container -->
-    <div class="button-container">
-        <!-- Home button (text) -->
-        <button onclick="window.location.href='/'">Back to Home</button>
+        <!-- Button Container -->
+        <div class="button-container">
+            <!-- Home button (text) -->
+            <button onclick="window.location.href='/'">Back to Home</button>
 
-        <!-- Link to the registration page -->
-        <p>Don't have an account? <a href="/register">Register here</a></p>
+            <!-- Link to the registration page -->
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+        </div>
     </div>
 </body>
 </html>
