@@ -11,6 +11,14 @@ body {
     height: 100vh;
 }
 
+/* Centering container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Heading style */
 h1 {
     text-align: center;
@@ -20,12 +28,16 @@ h1 {
 
 /* Form styles */
 form {
-    width: 300px; /* Adjusted width for a better look */
+    width: 100%; /* Full width to ensure it's centered within the container */
+    max-width: 300px; /* Maximum width to maintain form size */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Space between form and buttons */
+    margin: 0 auto 20px; /* Center form and add space below it */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center inputs within form */
 }
 
 /* Error message styling */
@@ -37,11 +49,14 @@ form {
     border-radius: 4px;
     margin-bottom: 15px;
     text-align: center;
+    width: 100%; /* Full width for error message */
 }
 
 /* Label style */
 label {
     display: block;
+    width: 100%;
+    text-align: center; /* Center labels */
     margin-bottom: 5px;
     color: #666;
 }
@@ -49,7 +64,7 @@ label {
 /* Input fields style */
 input[type="text"],
 input[type="password"] {
-    width: calc(100% - 20px); /* Full width minus padding */
+    width: 100%; /* Full width to fill the form */
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -80,6 +95,7 @@ input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 16px;
+    margin-top: 10px;
 }
 
 input[type="submit"]:hover {
@@ -116,6 +132,10 @@ input[type="submit"]:hover {
 }
 
 /* Link styling */
+p {
+    text-align: center; /* Center the text */
+}
+
 p a {
     color: #333; /* Match the button color */
     text-decoration: none;
