@@ -3,39 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
     <title>Login</title>
-    <link rel="stylesheet" href="/register.css"> <!-- Assuming the same CSS file is used for simplicity -->
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <!-- Display error message if it exists -->
+        <% if (errorMessage) { %>
+            <div class="error-message"><%= errorMessage %></div>
+        <% } %>
         
-        <!-- Error message display -->
-        <div class="error-message" id="errorMessage" style="display: none;"></div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
 
-        <form id="loginForm" method="POST" action="/login">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Username" required>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-
-            <input type="submit" value="Login">
-        </form>
-
-        <div class="button-container">
-            <button onclick="window.location.href='/'">Home</button>
-        </div>
-
-        <p>Don't have an account? <a href="/register">Register here</a></p>
-    </div>
-
-    <script>
-        // Error handling (if needed)
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            // Your JavaScript code for form submission
-        });
-    </script>
+    <!-- Image Link to Home Page -->
+    <a href="/">
+        <img src="ArrowLeft.png" alt="Home" class="home-button-image">
+    </a>
+    
+    <!-- Link to the registration page -->
+    <p>Don't have an account? <a href="/register">Register here</a></p>
 </body>
 </html>
