@@ -65,14 +65,14 @@ label {
 }
 
 /* Input fields style */
-input[type="email"],
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     width: 100%; /* Full width to fill the form */
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 25px; /* Rounded edges for elongated circles */
+    border-radius: 25px; /* Elongated circles */
     box-sizing: border-box;
     font-size: 16px;
     color: #333;
@@ -89,21 +89,28 @@ input::placeholder {
 }
 
 /* Submit button style */
+button,
 input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: #333; /* Black background */
     color: white;
     border: none;
-    border-radius: 25px; /* Rounded edges for button */
+    border-radius: 25px; /* Elongated circles */
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     font-size: 16px;
     margin-top: 10px;
 }
 
+button:hover,
 input[type="submit"]:hover {
-    background-color: #555;
+    background-color: #555; /* Darker black on hover */
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: scale(0.98);
 }
 
 /* Button container styles */
@@ -112,27 +119,6 @@ input[type="submit"]:hover {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-}
-
-/* Home button (text) style */
-.button-container button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 25px; /* Rounded edges for button */
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 10px;
-}
-
-.button-container button:hover {
-    background-color: #555;
-}
-
-.button-container button:active {
-    transform: scale(0.98);
 }
 
 /* Link styling */
@@ -147,4 +133,32 @@ p a {
 
 p a:hover {
     text-decoration: underline; /* Underline on hover */
+}
+
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup h2 {
+    margin-bottom: 15px;
+    color: #333;
 }
