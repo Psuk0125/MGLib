@@ -1,4 +1,4 @@
-/* General Body Styling */
+/* General body styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f2f2f2;
@@ -11,16 +11,16 @@ body {
     height: 100vh;
 }
 
-/* Header Styling */
+/* Heading style */
 h1 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Form Styling */
+/* Form styles */
 form {
-    width: 200px; /* Match width with login form */
+    width: 300px; /* Adjusted width for a better look */
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -28,116 +28,120 @@ form {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Label Styling */
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Input Fields Styling */
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    width: calc(100% - 20px); /* Full width minus padding */
-    padding: 8px; /* Slightly reduced padding */
-    margin-bottom: 5px; /* Reduced margin to bring inputs closer */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Submit Button Styling */
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4A8522;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #356018;
-}
-
-/* Error and Success Message Styling */
-.message {
-    margin: 15px 0;
-    padding: 10px;
-    border-radius: 4px;
-    display: none; /* Initially hidden */
-}
-
-.message.error {
-    color: #d9534f;
-    background-color: #f2dede;
-}
-
-.message.success {
-    color: #5bc0de;
-    background-color: #d9edf7;
-}
-
-/* Popup Styling */
+/* Popup styles */
 .popup {
-    display: none; /* Initially hidden */
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 300px;
     padding: 20px;
     background-color: #ffffff;
+    border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .popup.show {
     display: block;
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .popup h2 {
-    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-.popup button {
-    margin-top: 10px;
-    width: 48%;
-    padding: 10px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.popup button:first-of-type {
+/* Button styles */
+button {
+    padding: 8px 16px;
     background-color: #4A8522;
     color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px;
 }
 
-.popup button:first-of-type:hover {
+button:hover {
     background-color: #356018;
+    transform: scale(1.05);
 }
 
-.popup button:last-of-type {
-    background-color: #d9534f;
-    color: white;
+button:active {
+    transform: scale(0.98);
 }
 
-.popup button:last-of-type:hover {
-    background-color: #c9302c;
+/* Input and label styles */
+label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #4A8522;
+    box-shadow: 0px 0px 5px rgba(74, 133, 34, 0.5);
+    outline: none;
+}
+
+/* Error and success message styling */
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.message.error {
+    color: #d9534f;
+    border: 1px solid #d9534f;
+    background-color: #f2dede;
+}
+
+.message.success {
+    color: #5cb85c;
+    border: 1px solid #5cb85c;
+    background-color: #dff0d8;
+}
+
+/* Link styles */
+p {
+    margin-top: 20px;
+}
+
+p a {
+    color: #4A8522;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
     form {
         width: 90%;
-        padding: 15px;
     }
 }
