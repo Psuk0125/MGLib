@@ -11,6 +11,21 @@ body {
     height: 100vh;
 }
 
+/* Centering container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Full width */
+    max-width: 400px; /* Maximum width for the container */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center container horizontally */
+}
+
 /* Heading style */
 h1 {
     text-align: center;
@@ -20,128 +35,116 @@ h1 {
 
 /* Form styles */
 form {
-    width: 300px; /* Adjusted width for a better look */
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width within the container */
+    padding: 0; /* Remove padding to avoid extra space */
+    margin: 0; /* Remove margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center inputs within form */
 }
 
-/* Popup styles */
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.popup.show {
-    display: block;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.popup h2 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-/* Button styles */
-button {
-    padding: 8px 16px;
-    background-color: #4A8522;
-    color: white;
-    border: none;
+/* Error message styling */
+.error-message {
+    color: #d9534f; /* Red color for error */
+    background-color: #f2dede; /* Light red background */
+    border: 1px solid #d9534f; /* Red border */
+    padding: 10px;
     border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s, transform 0.2s;
-    margin: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%; /* Full width for error message */
 }
 
-button:hover {
-    background-color: #356018;
-    transform: scale(1.05);
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-/* Input and label styles */
+/* Label style */
 label {
     display: block;
+    width: 100%;
+    text-align: center; /* Center labels */
     margin-bottom: 5px;
+    color: #666;
 }
 
+/* Input fields style */
 input[type="email"],
 input[type="text"],
 input[type="password"] {
-    width: calc(100% - 20px);
+    width: 100%; /* Full width to fill the form */
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    border-radius: 25px; /* Rounded edges for elongated circles */
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    text-align: center; /* Center text horizontally */
+    line-height: 1.5; /* Adjust line height to center text vertically */
 }
 
-input[type="email"]:focus,
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #4A8522;
-    box-shadow: 0px 0px 5px rgba(74, 133, 34, 0.5);
-    outline: none;
+/* Placeholder text style */
+input::placeholder {
+    color: #999;
+    font-size: 16px;
+    text-align: center; /* Center placeholder text horizontally */
 }
 
-/* Error and success message styling */
-.message {
-    margin-top: 20px;
+/* Submit button style */
+input[type="submit"] {
+    width: 100%;
     padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    display: none;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Rounded edges for button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.message.error {
-    color: #d9534f;
-    border: 1px solid #d9534f;
-    background-color: #f2dede;
+input[type="submit"]:hover {
+    background-color: #555;
 }
 
-.message.success {
-    color: #5cb85c;
-    border: 1px solid #5cb85c;
-    background-color: #dff0d8;
-}
-
-/* Link styles */
-p {
+/* Button container styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
+}
+
+/* Home button (text) style */
+.button-container button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 25px; /* Rounded edges for button */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.button-container button:hover {
+    background-color: #555;
+}
+
+.button-container button:active {
+    transform: scale(0.98);
+}
+
+/* Link styling */
+p {
+    text-align: center; /* Center the text */
 }
 
 p a {
-    color: #4A8522;
+    color: #333; /* Match the button color */
     text-decoration: none;
 }
 
 p a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive adjustments */
-@media (max-width: 400px) {
-    form {
-        width: 90%;
-    }
+    text-decoration: underline; /* Underline on hover */
 }
